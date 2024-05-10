@@ -1,5 +1,5 @@
 # Healthcare- appointment-robotframework
-This is Project to Automate Various scenarios of Cura Health care services which is used to make various appointments
+This is Project to Automate Various scenarios of Cura Health care services which is used to make various appointments.
 Website Link : https://katalon-demo-cura.herokuapp.com/profile.php#login
 
 **Test cases**
