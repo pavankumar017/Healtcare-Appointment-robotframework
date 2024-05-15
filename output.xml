@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.12 on darwin)" generated="20240515 11:23:46.318" rpa="false" schemaversion="3">
+<suite id="s1" name="Login" source="/Users/pavankumar/VSCODE/Healtcare-Appointment-robotframework/cura-healthcare/Test_cases/login.robot">
+<test id="s1-t1" name="LOGIN" line="6">
+<kw name="Open Browser">
+<arg>${None}</arg>
+<msg timestamp="20240515 11:23:46.337" level="FAIL">No keyword with name 'Open Browser' found.</msg>
+<status status="FAIL" starttime="20240515 11:23:46.337" endtime="20240515 11:23:46.338"/>
+</kw>
+<status status="FAIL" starttime="20240515 11:23:46.336" endtime="20240515 11:23:46.339">No keyword with name 'Open Browser' found.</status>
+</test>
+<status status="FAIL" starttime="20240515 11:23:46.321" endtime="20240515 11:23:46.339"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Login">Login</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20240515 11:23:46.334" level="ERROR">Error in file '/Users/pavankumar/VSCODE/Healtcare-Appointment-robotframework/cura-healthcare/Test_cases/login.robot' on line 2: Importing library 'SeleniumLibrary' failed: ModuleNotFoundError: No module named 'SeleniumLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /Users/pavankumar/.vscode/extensions/robocorp.robotframework-lsp-1.12.0/src/robotframework_debug_adapter
+  /Users/pavankumar/VSCODE/Healtcare-Appointment-robotframework
+  /Users/pavankumar/.vscode/extensions/robocorp.robotframework-lsp-1.12.0/src
+  /Users/pavankumar/.vscode/extensions/robocorp.robotframework-lsp-1.12.0/src/robotframework_ls/vendored
+  /Users/Shared/robocorp/ht/fec0afa_b1f3c24_992639ca/lib/python310.zip
+  /Users/Shared/robocorp/ht/fec0afa_b1f3c24_992639ca/lib/python3.10
+  /Users/Shared/robocorp/ht/fec0afa_b1f3c24_992639ca/lib/python3.10/lib-dynload
+  /Users/Shared/robocorp/ht/fec0afa_b1f3c24_992639ca/lib/python3.10/site-packages</msg>
+</errors>
+</robot>

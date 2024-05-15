@@ -1,0 +1,16 @@
+1715666343590	geckodriver	INFO	Listening on 127.0.0.1:52945
+1715666343662	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/89/82j3q4gx4y96dfcb2jqb5jvw0000gn/T/rust_mozprofileOVtvK0"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+2024-05-14 11:29:03.866 firefox[15120:285044] WARNING: Secure coding is not enabled for restorable state! Enable secure coding by implementing NSApplicationDelegate.applicationSupportsSecureRestorableState: and returning YES.
+1715666343977	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1715666344071	Marionette	INFO	Listening on port 52957
+WebDriver BiDi listening on ws://127.0.0.1:52946
+Read port: 52957
+1715666344167	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:52946/devtools/browser/775062be-6d12-4e9c-8ad7-1419abdad7cf
+1715676785751	Marionette	INFO	Stopped listening on port 52957
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+console.error: "Failed to fetch https://spocs.getpocket.com/user:" "NetworkError when attempting to fetch resource."
