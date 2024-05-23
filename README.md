@@ -33,7 +33,6 @@ Shared resources used across multiple test cases, organized into subfolders and 
 
 ### `libs` Folder
 Custom Python libraries or modules that extend Robot Framework capabilities. This might include:
-- **Custom keywords**: Python functions/classes implementing complex keywords.
 - **Utility functions**: Helper functions or utilities shared across tests.
 
 ### `output` Folder
@@ -41,11 +40,6 @@ Stores the output from test runs, including:
 - **Logs**: Detailed logs from test execution.
 - **Reports**: Test reports in HTML, XML, or other formats.
 - **Screenshots**: Images captured during test execution.
-
-### `config` Folder
-This folder contains configuration files, including:
-- **Environment-specific configurations**: Settings for development, staging, production, etc.
-- **Global settings**: General configurations for Robot Framework or related tools.
 
 ---
 
