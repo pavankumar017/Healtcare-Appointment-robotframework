@@ -1,38 +1,269 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.10.12 on darwin)" generated="20240515 11:23:46.318" rpa="false" schemaversion="3">
-<suite id="s1" name="Login" source="/Users/pavankumar/VSCODE/Healtcare-Appointment-robotframework/cura-healthcare/Test_cases/login.robot">
-<test id="s1-t1" name="LOGIN" line="6">
-<kw name="Open Browser">
-<arg>${None}</arg>
-<msg timestamp="20240515 11:23:46.337" level="FAIL">No keyword with name 'Open Browser' found.</msg>
-<status status="FAIL" starttime="20240515 11:23:46.337" endtime="20240515 11:23:46.338"/>
+<robot generator="Robot 7.0 (Python 3.12.3 on darwin)" generated="2024-05-23T11:11:28.732429" rpa="false" schemaversion="5">
+<suite id="s1" name="Login" source="/Users/pavankumar/VSCODE/Healtcare-Appointment-robotframework/cura-healthcare/test_case/login.robot">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2024-05-23T11:11:28.811639" level="INFO">Opening browser 'chrome' to base url 'https://katalon-demo-cura.herokuapp.com/profile.php#login'.</msg>
+<arg>browser=chrome</arg>
+<arg>url=https://katalon-demo-cura.herokuapp.com/profile.php#login</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-23T11:11:28.811518" elapsed="3.784462"/>
 </kw>
-<status status="FAIL" starttime="20240515 11:23:46.336" endtime="20240515 11:23:46.339">No keyword with name 'Open Browser' found.</status>
+<test id="s1-t1" name="Test to verify login page" line="11">
+<kw name="Given Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-23T11:11:32.597344" level="INFO">Opening browser 'chrome' to base url 'https://katalon-demo-cura.herokuapp.com/profile.php#login'.</msg>
+<arg>browser=chrome</arg>
+<arg>url=https://katalon-demo-cura.herokuapp.com/profile.php#login</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-23T11:11:32.597065" elapsed="3.054396"/>
+</kw>
+<kw name="Then User is on Login page" owner="login_keywords">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2024-05-23T11:11:35.658857" level="INFO">${PageTitle} = CURA Healthcare Service</msg>
+<var>${PageTitle}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2024-05-23T11:11:35.653738" elapsed="0.005316"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${PageTitle}</arg>
+<arg>CURA Healthcare Service</arg>
+<arg>strip_spaces=true</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-05-23T11:11:35.659327" elapsed="0.000616"/>
+</kw>
+<status status="PASS" start="2024-05-23T11:11:35.653095" elapsed="0.006992"/>
+</kw>
+<status status="PASS" start="2024-05-23T11:11:32.596405" elapsed="3.063955"/>
 </test>
-<status status="FAIL" starttime="20240515 11:23:46.321" endtime="20240515 11:23:46.339"/>
+<test id="s1-t2" name="Test to verify fields present in login page" line="15">
+<kw name="Given User is on Login page" owner="login_keywords">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2024-05-23T11:11:35.665546" level="INFO">${PageTitle} = CURA Healthcare Service</msg>
+<var>${PageTitle}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2024-05-23T11:11:35.661568" elapsed="0.004035"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${PageTitle}</arg>
+<arg>CURA Healthcare Service</arg>
+<arg>strip_spaces=true</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-05-23T11:11:35.665783" elapsed="0.000276"/>
+</kw>
+<status status="PASS" start="2024-05-23T11:11:35.661256" elapsed="0.004894"/>
+</kw>
+<kw name="Then Page should have username pwd and login button" owner="login_keywords">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-05-23T11:11:35.689955" level="INFO">Element 'id:txt-username' is displayed.</msg>
+<arg>locator=${loginUsername}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-23T11:11:35.666742" elapsed="0.023291"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-05-23T11:11:35.703974" level="INFO">Element 'id:txt-password' is displayed.</msg>
+<arg>locator=${loginPwd}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-23T11:11:35.690181" elapsed="0.013877"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-05-23T11:11:35.714408" level="INFO">Element 'id:btn-login' is displayed.</msg>
+<arg>locator=${loginbtn}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-23T11:11:35.704179" elapsed="0.010298"/>
+</kw>
+<status status="PASS" start="2024-05-23T11:11:35.666410" elapsed="0.048139"/>
+</kw>
+<status status="PASS" start="2024-05-23T11:11:35.660711" elapsed="0.053959"/>
+</test>
+<test id="s1-t3" name="Test to verify invalid user name" line="19">
+<kw name="Given User is on Login page" owner="login_keywords">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2024-05-23T11:11:35.717124" level="INFO">${PageTitle} = CURA Healthcare Service</msg>
+<var>${PageTitle}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2024-05-23T11:11:35.715147" elapsed="0.001994"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${PageTitle}</arg>
+<arg>CURA Healthcare Service</arg>
+<arg>strip_spaces=true</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-05-23T11:11:35.717212" elapsed="0.000124"/>
+</kw>
+<status status="PASS" start="2024-05-23T11:11:35.715018" elapsed="0.002356"/>
+</kw>
+<kw name="And Enter invalid username" owner="login_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-23T11:11:35.717711" level="INFO">Typing text 'asdasd' into text field 'id:txt-username'.</msg>
+<arg>locator=${loginUsername}</arg>
+<arg>text=${invalid_username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-23T11:11:35.717583" elapsed="0.104096"/>
+</kw>
+<status status="PASS" start="2024-05-23T11:11:35.717474" elapsed="0.104286"/>
+</kw>
+<kw name="And Enter Password" owner="login_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-23T11:11:35.822229" level="INFO">Typing text 'ThisIsNotAPassword' into text field 'id:txt-password'.</msg>
+<arg>${loginPwd}</arg>
+<arg>${valid_pwd}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-23T11:11:35.822090" elapsed="0.040376"/>
+</kw>
+<status status="PASS" start="2024-05-23T11:11:35.821938" elapsed="0.040594"/>
+</kw>
+<kw name="And Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-23T11:11:35.862797" level="INFO">Clicking button 'id:btn-login'.</msg>
+<arg>${loginbtn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-23T11:11:35.862664" elapsed="0.538594"/>
+</kw>
+<kw name="Then Error Message should be displayed" owner="login_keywords">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-05-23T11:11:36.447414" level="INFO">${error} = Login failed! Please ensure the username and password are valid.</msg>
+<var>${error}</var>
+<arg>locator=${error_message}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-23T11:11:36.401839" elapsed="0.045604"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${error}</arg>
+<arg>Login failed! Please ensure the username and password are valid.</arg>
+<arg>strip_spaces=true</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-05-23T11:11:36.447588" elapsed="0.000179"/>
+</kw>
+<status status="PASS" start="2024-05-23T11:11:36.401568" elapsed="0.046243"/>
+</kw>
+<status status="PASS" start="2024-05-23T11:11:35.714799" elapsed="0.733107"/>
+</test>
+<test id="s1-t4" name="Test to verify invalid password" line="26">
+<kw name="Given User is on Login page" owner="login_keywords">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2024-05-23T11:11:36.450327" level="INFO">${PageTitle} = CURA Healthcare Service</msg>
+<var>${PageTitle}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2024-05-23T11:11:36.448329" elapsed="0.002017"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${PageTitle}</arg>
+<arg>CURA Healthcare Service</arg>
+<arg>strip_spaces=true</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-05-23T11:11:36.450416" elapsed="0.000108"/>
+</kw>
+<status status="PASS" start="2024-05-23T11:11:36.448215" elapsed="0.002343"/>
+</kw>
+<kw name="And Enter valid username" owner="login_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-23T11:11:36.450939" level="INFO">Typing text 'John Doe' into text field 'id:txt-username'.</msg>
+<arg>locator=${loginUsername}</arg>
+<arg>text=${validusername}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-23T11:11:36.450828" elapsed="0.036296"/>
+</kw>
+<status status="PASS" start="2024-05-23T11:11:36.450725" elapsed="0.036472"/>
+</kw>
+<kw name="And Enter invalid Password" owner="login_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-23T11:11:36.487593" level="INFO">Typing text 'jksdhjkd' into text field 'id:txt-password'.</msg>
+<arg>${loginPwd}</arg>
+<arg>${invalid_pwd}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-23T11:11:36.487481" elapsed="0.039628"/>
+</kw>
+<status status="PASS" start="2024-05-23T11:11:36.487348" elapsed="0.039825"/>
+</kw>
+<kw name="And Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-23T11:11:36.527419" level="INFO">Clicking button 'id:btn-login'.</msg>
+<arg>${loginbtn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-23T11:11:36.527293" elapsed="0.625757"/>
+</kw>
+<kw name="Then Error Message should be displayed" owner="login_keywords">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-05-23T11:11:37.207509" level="INFO">${error} = Login failed! Please ensure the username and password are valid.</msg>
+<var>${error}</var>
+<arg>locator=${error_message}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-23T11:11:37.153634" elapsed="0.053904"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${error}</arg>
+<arg>Login failed! Please ensure the username and password are valid.</arg>
+<arg>strip_spaces=true</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-05-23T11:11:37.207652" elapsed="0.000155"/>
+</kw>
+<status status="PASS" start="2024-05-23T11:11:37.153384" elapsed="0.054470"/>
+</kw>
+<status status="PASS" start="2024-05-23T11:11:36.448018" elapsed="0.759933"/>
+</test>
+<test id="s1-t5" name="Test to verify successful login" line="33">
+<kw name="Given User is on Login page" owner="login_keywords">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2024-05-23T11:11:37.210545" level="INFO">${PageTitle} = CURA Healthcare Service</msg>
+<var>${PageTitle}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2024-05-23T11:11:37.208421" elapsed="0.002144"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${PageTitle}</arg>
+<arg>CURA Healthcare Service</arg>
+<arg>strip_spaces=true</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-05-23T11:11:37.210639" elapsed="0.000117"/>
+</kw>
+<status status="PASS" start="2024-05-23T11:11:37.208295" elapsed="0.002508"/>
+</kw>
+<kw name="And Enter valid username" owner="login_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-23T11:11:37.211309" level="INFO">Typing text 'John Doe' into text field 'id:txt-username'.</msg>
+<arg>locator=${loginUsername}</arg>
+<arg>text=${validusername}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-23T11:11:37.211175" elapsed="0.037843"/>
+</kw>
+<status status="PASS" start="2024-05-23T11:11:37.210916" elapsed="0.038169"/>
+</kw>
+<kw name="And Enter Password" owner="login_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-23T11:11:37.249463" level="INFO">Typing text 'ThisIsNotAPassword' into text field 'id:txt-password'.</msg>
+<arg>${loginPwd}</arg>
+<arg>${valid_pwd}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-23T11:11:37.249360" elapsed="0.039712"/>
+</kw>
+<status status="PASS" start="2024-05-23T11:11:37.249231" elapsed="0.039932"/>
+</kw>
+<kw name="And Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-23T11:11:37.289500" level="INFO">Clicking button 'id:btn-login'.</msg>
+<arg>${loginbtn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-23T11:11:37.289324" elapsed="0.608908"/>
+</kw>
+<kw name="Then User is on appointment creation page" owner="login_keywords">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-05-23T11:11:37.922792" level="INFO">Element 'id:combo_facility' is displayed.</msg>
+<arg>${facility}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-23T11:11:37.898627" elapsed="0.024220"/>
+</kw>
+<status status="PASS" start="2024-05-23T11:11:37.898459" elapsed="0.024446"/>
+</kw>
+<status status="PASS" start="2024-05-23T11:11:37.208077" elapsed="0.714920"/>
+</test>
+<status status="PASS" start="2024-05-23T11:11:28.732963" elapsed="9.190260"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Login">Login</stat>
+<stat pass="5" fail="0" skip="0" id="s1" name="Login">Login</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20240515 11:23:46.334" level="ERROR">Error in file '/Users/pavankumar/VSCODE/Healtcare-Appointment-robotframework/cura-healthcare/Test_cases/login.robot' on line 2: Importing library 'SeleniumLibrary' failed: ModuleNotFoundError: No module named 'SeleniumLibrary'
-Traceback (most recent call last):
-  None
-PYTHONPATH:
-  /Users/pavankumar/.vscode/extensions/robocorp.robotframework-lsp-1.12.0/src/robotframework_debug_adapter
-  /Users/pavankumar/VSCODE/Healtcare-Appointment-robotframework
-  /Users/pavankumar/.vscode/extensions/robocorp.robotframework-lsp-1.12.0/src
-  /Users/pavankumar/.vscode/extensions/robocorp.robotframework-lsp-1.12.0/src/robotframework_ls/vendored
-  /Users/Shared/robocorp/ht/fec0afa_b1f3c24_992639ca/lib/python310.zip
-  /Users/Shared/robocorp/ht/fec0afa_b1f3c24_992639ca/lib/python3.10
-  /Users/Shared/robocorp/ht/fec0afa_b1f3c24_992639ca/lib/python3.10/lib-dynload
-  /Users/Shared/robocorp/ht/fec0afa_b1f3c24_992639ca/lib/python3.10/site-packages</msg>
 </errors>
 </robot>
