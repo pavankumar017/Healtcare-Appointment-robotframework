@@ -1,3 +1,15 @@
+
+## Test Cases
+
+The test cases for this project are documented and maintained in a Google Sheets file. Each test case includes detailed steps, expected results, and any necessary data inputs. This helps in ensuring comprehensive test coverage and facilitates easy updates and collaboration.
+
+You can access the detailed test cases - https://docs.google.com/spreadsheets/d/1YE1v637yfYH-V9qtf1LG0HcGLkJ2wPtoPAWHpHZQoHY/edit#gid=0
+
+---
+
+If you have any questions or need further assistance with the test cases, please feel free to reach out or open an issue.
+And here's how you can integrate this section into your existing README.md file:
+
 # Healthcare Appointment Automation Project
 
 This project uses Robot Framework for automating healthcare appointment-related test cases. The folder structure is organized to ensure clarity, reusability, and maintainability.
@@ -59,16 +71,3 @@ This folder contains configuration files, including:
 To execute a specific test case, run the following command:
 ```sh
 python -m robot cura-healthcare/test_case/login.robot
-    Replace cura-healthcare/test_case/login.robot with the path to the specific test case you want to run.
-
----
-
-## Test Cases
-
-The test cases for this project are documented and maintained in a Google Sheets file. Each test case includes detailed steps, expected results, and any necessary data inputs. This helps in ensuring comprehensive test coverage and facilitates easy updates and collaboration.
-
-You can access the detailed test cases -https://docs.google.com/spreadsheets/d/1YE1v637yfYH-V9qtf1LG0HcGLkJ2wPtoPAWHpHZQoHY/edit#gid=0
-
----
-
-If you have any questions or need further assistance with the test cases, please feel free to reach out or open an issue.
