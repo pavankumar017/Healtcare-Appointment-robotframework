@@ -63,8 +63,12 @@ python -m robot cura-healthcare/test_case/login.robot
 
 ---
 
- -Test Cases
-    The cases are documented and maintained in a Google Sheets file. You can find the detailed test cases here.- https://docs.google.com/spreadsheets/d/1YE1v637yfYH-V9qtf1LG0HcGLkJ2wPtoPAWHpHZQoHY/edit#gid=0
+## Test Cases
 
-Contribution
-Contributions are welcome! Please create a pull request with a detailed description of your changes.
+The test cases for this project are documented and maintained in a Google Sheets file. Each test case includes detailed steps, expected results, and any necessary data inputs. This helps in ensuring comprehensive test coverage and facilitates easy updates and collaboration.
+
+You can access the detailed test cases -https://docs.google.com/spreadsheets/d/1YE1v637yfYH-V9qtf1LG0HcGLkJ2wPtoPAWHpHZQoHY/edit#gid=0
+
+---
+
+If you have any questions or need further assistance with the test cases, please feel free to reach out or open an issue.
