@@ -8,7 +8,6 @@ You can access the detailed test cases - https://docs.google.com/spreadsheets/d/
 ---
 
 If you have any questions or need further assistance with the test cases, please feel free to reach out or open an issue.
-And here's how you can integrate this section into your existing README.md file:
 
 # Healthcare Appointment Automation Project
 
