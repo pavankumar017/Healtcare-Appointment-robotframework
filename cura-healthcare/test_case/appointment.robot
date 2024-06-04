@@ -9,10 +9,10 @@ Suite Setup    Open Browser    browser=chrome    url=https://katalon-demo-cura.h
 
 
 *** Test Cases ***
-# Test to verify Dropdown values of facility 
-#     Given User should login Successfully
-#     And User clicks on Facility dropdown
-#     Then Verify dropdown values
+Test to verify Dropdown values of facility 
+    Given User should login Successfully
+    And User clicks on Facility dropdown
+    Then Verify dropdown values
 
 Test to verify creating a new appointment 
     Given User should login Successfully
