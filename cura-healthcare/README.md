@@ -20,8 +20,6 @@ The main folder where the project resides. It contains:
 ### `tests` Folder
 This folder contains the test cases for the project. Tests are written in `.robot` files and might be organized by:
 - **Feature**: Tests grouped by specific application features.
-- **Type**: Separation of functional, integration, or regression tests.
-- **Suite**: Grouping of related tests into larger test suites.
 
 ### `resources` Folder
 Shared resources and data used across multiple tests, including:
