@@ -1,6 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
 Variables    ../locators/login_page_loactors.py
+Variables    ../locators/appointment_locators.py
 Variables    ../../resources/data.py
 
 
@@ -32,4 +33,17 @@ Enter invalid Password
 
 User is on appointment creation page
     Element Should Be Visible    ${facility}
+
+
+User should login Successfully 
+    Enter valid username
+    Enter Password
+    Click Button    ${loginbtn}
+
+User Logs out
+    Click Element    ${sidebar}
+    Click Element    ${logout}
+
+User should be logged out
+    Element Should Be Visible    locator={"id:btn-make-appointment"}
     

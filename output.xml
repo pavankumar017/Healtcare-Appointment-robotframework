@@ -1,269 +1,626 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.12.3 on darwin)" generated="2024-05-23T11:11:28.732429" rpa="false" schemaversion="5">
-<suite id="s1" name="Login" source="/Users/pavankumar/VSCODE/Healtcare-Appointment-robotframework/cura-healthcare/test_case/login.robot">
+<robot generator="Robot 7.0 (Python 3.12.3 on darwin)" generated="2024-06-04T14:11:44.379503" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Case" source="/Users/pavankumar/VSCODE/Healtcare-Appointment-robotframework/cura-healthcare/test_case">
+<suite id="s1-s1" name="Appointment" source="/Users/pavankumar/VSCODE/Healtcare-Appointment-robotframework/cura-healthcare/test_case/appointment.robot">
 <kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
-<msg time="2024-05-23T11:11:28.811639" level="INFO">Opening browser 'chrome' to base url 'https://katalon-demo-cura.herokuapp.com/profile.php#login'.</msg>
+<msg time="2024-06-04T14:11:44.440637" level="INFO">Opening browser 'chrome' to base url 'https://katalon-demo-cura.herokuapp.com/profile.php#login'.</msg>
 <arg>browser=chrome</arg>
 <arg>url=https://katalon-demo-cura.herokuapp.com/profile.php#login</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-05-23T11:11:28.811518" elapsed="3.784462"/>
+<status status="PASS" start="2024-06-04T14:11:44.440500" elapsed="4.068736"/>
 </kw>
-<test id="s1-t1" name="Test to verify login page" line="11">
-<kw name="Given Open Browser" owner="SeleniumLibrary">
-<msg time="2024-05-23T11:11:32.597344" level="INFO">Opening browser 'chrome' to base url 'https://katalon-demo-cura.herokuapp.com/profile.php#login'.</msg>
+<test id="s1-s1-t1" name="Test to verify creating a new appointment" line="17">
+<kw name="Given User should login Successfully" owner="login_keywords">
+<kw name="Enter valid username" owner="login_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-04T14:11:48.515790" level="INFO">Typing text 'John Doe' into text field 'id:txt-username'.</msg>
+<arg>locator=${loginUsername}</arg>
+<arg>text=${validusername}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-04T14:11:48.515118" elapsed="5.378865"/>
+</kw>
+<status status="PASS" start="2024-06-04T14:11:48.514874" elapsed="5.379194"/>
+</kw>
+<kw name="Enter Password" owner="login_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-04T14:11:53.894427" level="INFO">Typing text 'ThisIsNotAPassword' into text field 'id:txt-password'.</msg>
+<arg>${loginPwd}</arg>
+<arg>${valid_pwd}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-04T14:11:53.894315" elapsed="0.036963"/>
+</kw>
+<status status="PASS" start="2024-06-04T14:11:53.894174" elapsed="0.037180"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-04T14:11:53.931572" level="INFO">Clicking button 'id:btn-login'.</msg>
+<arg>${loginbtn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-04T14:11:53.931449" elapsed="0.732819"/>
+</kw>
+<status status="PASS" start="2024-06-04T14:11:48.514453" elapsed="6.149890"/>
+</kw>
+<kw name="And User selects a dropdown &quot;Seoul CURA Healthcare Center&quot;" owner="appointment_keywords" source_name="User selects a dropdown &quot;${select_value}&quot;">
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2024-06-04T14:11:54.665008" level="INFO">Selecting options from selection list 'id:combo_facility' by value Seoul CURA Healthcare Center.</msg>
+<arg>id:combo_facility</arg>
+<arg>${select_value}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2024-06-04T14:11:54.664899" elapsed="0.035238"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2024-06-04T14:11:54.700458" level="INFO">${select_value} = Seoul CURA Healthcare Center</msg>
+<msg time="2024-06-04T14:11:54.700489" level="INFO">${need_fac} = None</msg>
+<var>${need_fac}</var>
+<arg>${select_value}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2024-06-04T14:11:54.700287" elapsed="0.000211"/>
+</kw>
+<status status="PASS" start="2024-06-04T14:11:54.664702" elapsed="0.035829"/>
+</kw>
+<kw name="And User selects todys date" owner="appointment_keywords">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2024-06-04T14:11:54.701085" level="INFO">${date} = 04/06/2024</msg>
+<var>${date}</var>
+<arg>UTC</arg>
+<arg>result_format=%d/%m/%Y</arg>
+<arg>exclude_millis=yes</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2024-06-04T14:11:54.700781" elapsed="0.000315"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-06-04T14:11:54.701211" level="INFO">04/06/2024</msg>
+<arg>${date}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-06-04T14:11:54.701150" elapsed="0.000087"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-04T14:11:54.701387" level="INFO">Typing text '04/06/2024' into text field 'id:txt_visit_date'.</msg>
+<arg>locator=${date_sel}</arg>
+<arg>text=${date}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-04T14:11:54.701285" elapsed="0.052217"/>
+</kw>
+<status status="PASS" start="2024-06-04T14:11:54.700665" elapsed="0.052900"/>
+</kw>
+<kw name="Then Click on Submit" owner="appointment_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-04T14:11:54.753948" level="INFO">Clicking button 'id:btn-book-appointment'.</msg>
+<arg>${book_aapt}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-04T14:11:54.753857" elapsed="0.472398"/>
+</kw>
+<status status="PASS" start="2024-06-04T14:11:54.753718" elapsed="0.472662"/>
+</kw>
+<status status="PASS" start="2024-06-04T14:11:48.510164" elapsed="6.716409"/>
+</test>
+<test id="s1-s1-t2" name="Test to verify the appointment data created successfully in history section" line="23">
+<kw name="Given User goes to history section" owner="appointment_keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-04T14:11:55.227557" level="INFO">Clicking element 'id:sidebar-wrapper'.</msg>
+<msg time="2024-06-04T14:11:55.396667" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-06-04T14:11:55.396959" level="FAIL">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=125.0.6422.113)
+Stacktrace:
+0   chromedriver                        0x00000001006424c8 chromedriver + 4302024
+1   chromedriver                        0x000000010063ae10 chromedriver + 4271632
+2   chromedriver                        0x000000010026c000 chromedriver + 278528
+3   chromedriver                        0x00000001002af398 chromedriver + 553880
+4   chromedriver                        0x00000001002a4e24 chromedriver + 511524
+5   chromedriver                        0x00000001002a485c chromedriver + 510044
+6   chromedriver                        0x00000001002e6c5c chromedriver + 781404
+7   chromedriver                        0x00000001002a3004 chromedriver + 503812
+8   chromedriver                        0x00000001002a39ec chromedriver + 506348
+9   chromedriver                        0x000000010060a510 chromedriver + 4072720
+10  chromedriver                        0x000000010060efbc chromedriver + 4091836
+11  chromedriver                        0x00000001005f1754 chromedriver + 3970900
+12  chromedriver                        0x000000010060f8a4 chromedriver + 4094116
+13  chromedriver                        0x00000001005e46d4 chromedriver + 3917524
+14  chromedriver                        0x000000010062cb08 chromedriver + 4213512
+15  chromedriver                        0x000000010062cc84 chromedriver + 4213892
+16  chromedriver                        0x000000010063aa08 chromedriver + 4270600
+17  libsystem_pthread.dylib             0x000000018a677034 _pthread_start + 136
+18  libsystem_pthread.dylib             0x000000018a671e3c thread_start + 8
+</msg>
+<arg>${sidebar}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2024-06-04T14:11:55.227414" elapsed="0.172868">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=125.0.6422.113)
+Stacktrace:
+0   chromedriver                        0x00000001006424c8 chromedriver + 4302024
+1   chromedriver                        0x000000010063ae10 chromedriver + 4271632
+2   chromedriver                        0x000000010026c000 chromedriver + 278528
+3   chromedriver                        0x00000001002af398 chromedriver + 553880
+4   chromedriver                        0x00000001002a4e24 chromedriver + 511524
+5   chromedriver                        0x00000001002a485c chromedriver + 510044
+6   chromedriver                        0x00000001002e6c5c chromedriver + 781404
+7   chromedriver                        0x00000001002a3004 chromedriver + 503812
+8   chromedriver                        0x00000001002a39ec chromedriver + 506348
+9   chromedriver                        0x000000010060a510 chromedriver + 4072720
+10  chromedriver                        0x000000010060efbc chromedriver + 4091836
+11  chromedriver                        0x00000001005f1754 chromedriver + 3970900
+12  chromedriver                        0x000000010060f8a4 chromedriver + 4094116
+13  chromedriver                        0x00000001005e46d4 chromedriver + 3917524
+14  chromedriver                        0x000000010062cb08 chromedriver + 4213512
+15  chromedriver                        0x000000010062cc84 chromedriver + 4213892
+16  chromedriver                        0x000000010063aa08 chromedriver + 4270600
+17  libsystem_pthread.dylib             0x000000018a677034 _pthread_start + 136
+18  libsystem_pthread.dylib             0x000000018a671e3c thread_start + 8
+</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${history}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-06-04T14:11:55.400497" elapsed="0.000020"/>
+</kw>
+<status status="FAIL" start="2024-06-04T14:11:55.227218" elapsed="0.173381">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=125.0.6422.113)
+Stacktrace:
+0   chromedriver                        0x00000001006424c8 chromedriver + 4302024
+1   chromedriver                        0x000000010063ae10 chromedriver + 4271632
+2   chromedriver                        0x000000010026c000 chromedriver + 278528
+3   chromedriver                        0x00000001002af398 chromedriver + 553880
+4   chromedriver                        0x00000001002a4e24 chromedriver + 511524
+5   chromedriver                        0x00000001002a485c chromedriver + 510044
+6   chromedriver                        0x00000001002e6c5c chromedriver + 781404
+7   chromedriver                        0x00000001002a3004 chromedriver + 503812
+8   chromedriver                        0x00000001002a39ec chromedriver + 506348
+9   chromedriver                        0x000000010060a510 chromedriver + 4072720
+10  chromedriver                        0x000000010060efbc chromedriver + 4091836
+11  chromedriver                        0x00000001005f1754 chromedriver + 3970900
+12  chromedriver                        0x000000010060f8a4 chromedriver + 4094116
+13  chromedriver                        0x00000001005e46d4 chromedriver + 3917524
+14  chromedriver                        0x000000010062cb08 chromedriver + 4213512
+15  chromedriver                        0x000000010062cc84 chromedriver + 4213892
+16  chromedriver                        0x000000010063aa08 chromedriver + 4270600
+17  libsystem_pthread.dylib             0x000000018a677034 _pthread_start + 136
+18  libsystem_pthread.dylib             0x000000018a671e3c thread_start + 8
+</status>
+</kw>
+<kw name="And Appointment created should be displayed" owner="appointment_keywords">
+<status status="NOT RUN" start="2024-06-04T14:11:55.400766" elapsed="0.000015"/>
+</kw>
+<kw name="Then User should be logged out" owner="login_keywords">
+<status status="NOT RUN" start="2024-06-04T14:11:55.400855" elapsed="0.000011"/>
+</kw>
+<status status="FAIL" start="2024-06-04T14:11:55.226830" elapsed="0.174126">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=125.0.6422.113)
+Stacktrace:
+0   chromedriver                        0x00000001006424c8 chromedriver + 4302024
+1   chromedriver                        0x000000010063ae10 chromedriver + 4271632
+2   chromedriver                        0x000000010026c000 chromedriver + 278528
+3   chromedriver                        0x00000001002af398 chromedriver + 553880
+4   chromedriver                        0x00000001002a4e24 chromedriver + 511524
+5   chromedriver                        0x00000001002a485c chromedriver + 510044
+6   chromedriver                        0x00000001002e6c5c chromedriver + 781404
+7   chromedriver                        0x00000001002a3004 chromedriver + 503812
+8   chromedriver                        0x00000001002a39ec chromedriver + 506348
+9   chromedriver                        0x000000010060a510 chromedriver + 4072720
+10  chromedriver                        0x000000010060efbc chromedriver + 4091836
+11  chromedriver                        0x00000001005f1754 chromedriver + 3970900
+12  chromedriver                        0x000000010060f8a4 chromedriver + 4094116
+13  chromedriver                        0x00000001005e46d4 chromedriver + 3917524
+14  chromedriver                        0x000000010062cb08 chromedriver + 4213512
+15  chromedriver                        0x000000010062cc84 chromedriver + 4213892
+16  chromedriver                        0x000000010063aa08 chromedriver + 4270600
+17  libsystem_pthread.dylib             0x000000018a677034 _pthread_start + 136
+18  libsystem_pthread.dylib             0x000000018a671e3c thread_start + 8
+</status>
+</test>
+<status status="FAIL" start="2024-06-04T14:11:44.389718" elapsed="11.011499"/>
+</suite>
+<suite id="s1-s2" name="Login" source="/Users/pavankumar/VSCODE/Healtcare-Appointment-robotframework/cura-healthcare/test_case/login.robot">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2024-06-04T14:11:55.403391" level="INFO">Opening browser 'chrome' to base url 'https://katalon-demo-cura.herokuapp.com/profile.php#login'.</msg>
 <arg>browser=chrome</arg>
 <arg>url=https://katalon-demo-cura.herokuapp.com/profile.php#login</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-05-23T11:11:32.597065" elapsed="3.054396"/>
+<status status="PASS" start="2024-06-04T14:11:55.403270" elapsed="5.847674"/>
+</kw>
+<test id="s1-s2-t1" name="Test to verify login page" line="9">
+<kw name="Given Open Browser" owner="SeleniumLibrary">
+<msg time="2024-06-04T14:12:01.252215" level="INFO">Opening browser 'chrome' to base url 'https://katalon-demo-cura.herokuapp.com/profile.php#login'.</msg>
+<arg>browser=chrome</arg>
+<arg>url=https://katalon-demo-cura.herokuapp.com/profile.php#login</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-06-04T14:12:01.251971" elapsed="5.692967"/>
 </kw>
 <kw name="Then User is on Login page" owner="login_keywords">
 <kw name="Get Title" owner="SeleniumLibrary">
-<msg time="2024-05-23T11:11:35.658857" level="INFO">${PageTitle} = CURA Healthcare Service</msg>
+<msg time="2024-06-04T14:12:06.949959" level="INFO">${PageTitle} = CURA Healthcare Service</msg>
 <var>${PageTitle}</var>
 <doc>Returns the title of the current page.</doc>
-<status status="PASS" start="2024-05-23T11:11:35.653738" elapsed="0.005316"/>
+<status status="PASS" start="2024-06-04T14:12:06.946186" elapsed="0.003841"/>
 </kw>
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
 <arg>${PageTitle}</arg>
 <arg>CURA Healthcare Service</arg>
 <arg>strip_spaces=true</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2024-05-23T11:11:35.659327" elapsed="0.000616"/>
+<status status="PASS" start="2024-06-04T14:12:06.950282" elapsed="0.000463"/>
 </kw>
-<status status="PASS" start="2024-05-23T11:11:35.653095" elapsed="0.006992"/>
+<status status="PASS" start="2024-06-04T14:12:06.945846" elapsed="0.004999"/>
 </kw>
-<status status="PASS" start="2024-05-23T11:11:32.596405" elapsed="3.063955"/>
+<status status="PASS" start="2024-06-04T14:12:01.251327" elapsed="5.699721"/>
 </test>
-<test id="s1-t2" name="Test to verify fields present in login page" line="15">
+<test id="s1-s2-t2" name="Test to verify fields present in login page" line="13">
 <kw name="Given User is on Login page" owner="login_keywords">
 <kw name="Get Title" owner="SeleniumLibrary">
-<msg time="2024-05-23T11:11:35.665546" level="INFO">${PageTitle} = CURA Healthcare Service</msg>
+<msg time="2024-06-04T14:12:06.956627" level="INFO">${PageTitle} = CURA Healthcare Service</msg>
 <var>${PageTitle}</var>
 <doc>Returns the title of the current page.</doc>
-<status status="PASS" start="2024-05-23T11:11:35.661568" elapsed="0.004035"/>
+<status status="PASS" start="2024-06-04T14:12:06.951871" elapsed="0.004879"/>
 </kw>
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
 <arg>${PageTitle}</arg>
 <arg>CURA Healthcare Service</arg>
 <arg>strip_spaces=true</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2024-05-23T11:11:35.665783" elapsed="0.000276"/>
+<status status="PASS" start="2024-06-04T14:12:06.957916" elapsed="0.000308"/>
 </kw>
-<status status="PASS" start="2024-05-23T11:11:35.661256" elapsed="0.004894"/>
+<status status="PASS" start="2024-06-04T14:12:06.951678" elapsed="0.006655"/>
 </kw>
 <kw name="Then Page should have username pwd and login button" owner="login_keywords">
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2024-05-23T11:11:35.689955" level="INFO">Element 'id:txt-username' is displayed.</msg>
+<msg time="2024-06-04T14:12:06.977439" level="INFO">Element 'id:txt-username' is displayed.</msg>
 <arg>locator=${loginUsername}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2024-05-23T11:11:35.666742" elapsed="0.023291"/>
+<status status="PASS" start="2024-06-04T14:12:06.958896" elapsed="0.018618"/>
 </kw>
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2024-05-23T11:11:35.703974" level="INFO">Element 'id:txt-password' is displayed.</msg>
+<msg time="2024-06-04T14:12:06.993026" level="INFO">Element 'id:txt-password' is displayed.</msg>
 <arg>locator=${loginPwd}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2024-05-23T11:11:35.690181" elapsed="0.013877"/>
+<status status="PASS" start="2024-06-04T14:12:06.977688" elapsed="0.015406"/>
 </kw>
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2024-05-23T11:11:35.714408" level="INFO">Element 'id:btn-login' is displayed.</msg>
+<msg time="2024-06-04T14:12:07.004953" level="INFO">Element 'id:btn-login' is displayed.</msg>
 <arg>locator=${loginbtn}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2024-05-23T11:11:35.704179" elapsed="0.010298"/>
+<status status="PASS" start="2024-06-04T14:12:06.993224" elapsed="0.011798"/>
 </kw>
-<status status="PASS" start="2024-05-23T11:11:35.666410" elapsed="0.048139"/>
+<status status="PASS" start="2024-06-04T14:12:06.958626" elapsed="0.046478"/>
 </kw>
-<status status="PASS" start="2024-05-23T11:11:35.660711" elapsed="0.053959"/>
+<status status="PASS" start="2024-06-04T14:12:06.951303" elapsed="0.053990"/>
 </test>
-<test id="s1-t3" name="Test to verify invalid user name" line="19">
+<test id="s1-s2-t3" name="Test to verify invalid user name" line="17">
 <kw name="Given User is on Login page" owner="login_keywords">
 <kw name="Get Title" owner="SeleniumLibrary">
-<msg time="2024-05-23T11:11:35.717124" level="INFO">${PageTitle} = CURA Healthcare Service</msg>
+<msg time="2024-06-04T14:12:07.008368" level="INFO">${PageTitle} = CURA Healthcare Service</msg>
 <var>${PageTitle}</var>
 <doc>Returns the title of the current page.</doc>
-<status status="PASS" start="2024-05-23T11:11:35.715147" elapsed="0.001994"/>
+<status status="PASS" start="2024-06-04T14:12:07.006296" elapsed="0.002095"/>
 </kw>
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
 <arg>${PageTitle}</arg>
 <arg>CURA Healthcare Service</arg>
 <arg>strip_spaces=true</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2024-05-23T11:11:35.717212" elapsed="0.000124"/>
+<status status="PASS" start="2024-06-04T14:12:07.008475" elapsed="0.000146"/>
 </kw>
-<status status="PASS" start="2024-05-23T11:11:35.715018" elapsed="0.002356"/>
+<status status="PASS" start="2024-06-04T14:12:07.005974" elapsed="0.002687"/>
 </kw>
 <kw name="And Enter invalid username" owner="login_keywords">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-23T11:11:35.717711" level="INFO">Typing text 'asdasd' into text field 'id:txt-username'.</msg>
+<msg time="2024-06-04T14:12:07.009035" level="INFO">Typing text 'asdasd' into text field 'id:txt-username'.</msg>
 <arg>locator=${loginUsername}</arg>
 <arg>text=${invalid_username}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-23T11:11:35.717583" elapsed="0.104096"/>
+<status status="PASS" start="2024-06-04T14:12:07.008905" elapsed="0.093452"/>
 </kw>
-<status status="PASS" start="2024-05-23T11:11:35.717474" elapsed="0.104286"/>
+<status status="PASS" start="2024-06-04T14:12:07.008781" elapsed="0.093646"/>
 </kw>
 <kw name="And Enter Password" owner="login_keywords">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-23T11:11:35.822229" level="INFO">Typing text 'ThisIsNotAPassword' into text field 'id:txt-password'.</msg>
+<msg time="2024-06-04T14:12:07.102968" level="INFO">Typing text 'ThisIsNotAPassword' into text field 'id:txt-password'.</msg>
 <arg>${loginPwd}</arg>
 <arg>${valid_pwd}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-23T11:11:35.822090" elapsed="0.040376"/>
+<status status="PASS" start="2024-06-04T14:12:07.102797" elapsed="0.041051"/>
 </kw>
-<status status="PASS" start="2024-05-23T11:11:35.821938" elapsed="0.040594"/>
+<status status="PASS" start="2024-06-04T14:12:07.102601" elapsed="0.041313"/>
 </kw>
 <kw name="And Click Button" owner="SeleniumLibrary">
-<msg time="2024-05-23T11:11:35.862797" level="INFO">Clicking button 'id:btn-login'.</msg>
+<msg time="2024-06-04T14:12:07.144172" level="INFO">Clicking button 'id:btn-login'.</msg>
 <arg>${loginbtn}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-23T11:11:35.862664" elapsed="0.538594"/>
+<status status="PASS" start="2024-06-04T14:12:07.144046" elapsed="0.875599"/>
 </kw>
 <kw name="Then Error Message should be displayed" owner="login_keywords">
 <kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2024-05-23T11:11:36.447414" level="INFO">${error} = Login failed! Please ensure the username and password are valid.</msg>
+<msg time="2024-06-04T14:12:08.042455" level="INFO">${error} = Login failed! Please ensure the username and password are valid.</msg>
 <var>${error}</var>
 <arg>locator=${error_message}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-23T11:11:36.401839" elapsed="0.045604"/>
+<status status="PASS" start="2024-06-04T14:12:08.020930" elapsed="0.021560"/>
 </kw>
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
 <arg>${error}</arg>
 <arg>Login failed! Please ensure the username and password are valid.</arg>
 <arg>strip_spaces=true</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2024-05-23T11:11:36.447588" elapsed="0.000179"/>
+<status status="PASS" start="2024-06-04T14:12:08.042634" elapsed="0.000196"/>
 </kw>
-<status status="PASS" start="2024-05-23T11:11:36.401568" elapsed="0.046243"/>
+<status status="PASS" start="2024-06-04T14:12:08.020197" elapsed="0.022692"/>
 </kw>
-<status status="PASS" start="2024-05-23T11:11:35.714799" elapsed="0.733107"/>
+<status status="PASS" start="2024-06-04T14:12:07.005495" elapsed="1.037516"/>
 </test>
-<test id="s1-t4" name="Test to verify invalid password" line="26">
+<test id="s1-s2-t4" name="Test to verify invalid password" line="24">
 <kw name="Given User is on Login page" owner="login_keywords">
 <kw name="Get Title" owner="SeleniumLibrary">
-<msg time="2024-05-23T11:11:36.450327" level="INFO">${PageTitle} = CURA Healthcare Service</msg>
+<msg time="2024-06-04T14:12:08.046250" level="INFO">${PageTitle} = CURA Healthcare Service</msg>
 <var>${PageTitle}</var>
 <doc>Returns the title of the current page.</doc>
-<status status="PASS" start="2024-05-23T11:11:36.448329" elapsed="0.002017"/>
+<status status="PASS" start="2024-06-04T14:12:08.043629" elapsed="0.002649"/>
 </kw>
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
 <arg>${PageTitle}</arg>
 <arg>CURA Healthcare Service</arg>
 <arg>strip_spaces=true</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2024-05-23T11:11:36.450416" elapsed="0.000108"/>
+<status status="PASS" start="2024-06-04T14:12:08.046380" elapsed="0.000158"/>
 </kw>
-<status status="PASS" start="2024-05-23T11:11:36.448215" elapsed="0.002343"/>
+<status status="PASS" start="2024-06-04T14:12:08.043460" elapsed="0.003133"/>
 </kw>
 <kw name="And Enter valid username" owner="login_keywords">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-23T11:11:36.450939" level="INFO">Typing text 'John Doe' into text field 'id:txt-username'.</msg>
+<msg time="2024-06-04T14:12:08.047047" level="INFO">Typing text 'John Doe' into text field 'id:txt-username'.</msg>
 <arg>locator=${loginUsername}</arg>
 <arg>text=${validusername}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-23T11:11:36.450828" elapsed="0.036296"/>
+<status status="PASS" start="2024-06-04T14:12:08.046885" elapsed="0.043816"/>
 </kw>
-<status status="PASS" start="2024-05-23T11:11:36.450725" elapsed="0.036472"/>
+<status status="PASS" start="2024-06-04T14:12:08.046738" elapsed="0.044029"/>
 </kw>
 <kw name="And Enter invalid Password" owner="login_keywords">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-23T11:11:36.487593" level="INFO">Typing text 'jksdhjkd' into text field 'id:txt-password'.</msg>
+<msg time="2024-06-04T14:12:08.091160" level="INFO">Typing text 'jksdhjkd' into text field 'id:txt-password'.</msg>
 <arg>${loginPwd}</arg>
 <arg>${invalid_pwd}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-23T11:11:36.487481" elapsed="0.039628"/>
+<status status="PASS" start="2024-06-04T14:12:08.091053" elapsed="0.032679"/>
 </kw>
-<status status="PASS" start="2024-05-23T11:11:36.487348" elapsed="0.039825"/>
+<status status="PASS" start="2024-06-04T14:12:08.090918" elapsed="0.032876"/>
 </kw>
 <kw name="And Click Button" owner="SeleniumLibrary">
-<msg time="2024-05-23T11:11:36.527419" level="INFO">Clicking button 'id:btn-login'.</msg>
+<msg time="2024-06-04T14:12:08.124051" level="INFO">Clicking button 'id:btn-login'.</msg>
 <arg>${loginbtn}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-23T11:11:36.527293" elapsed="0.625757"/>
+<status status="PASS" start="2024-06-04T14:12:08.123927" elapsed="0.728231"/>
 </kw>
 <kw name="Then Error Message should be displayed" owner="login_keywords">
 <kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2024-05-23T11:11:37.207509" level="INFO">${error} = Login failed! Please ensure the username and password are valid.</msg>
+<msg time="2024-06-04T14:12:08.865851" level="INFO">${error} = Login failed! Please ensure the username and password are valid.</msg>
 <var>${error}</var>
 <arg>locator=${error_message}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-23T11:11:37.153634" elapsed="0.053904"/>
+<status status="PASS" start="2024-06-04T14:12:08.853104" elapsed="0.012781"/>
 </kw>
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
 <arg>${error}</arg>
 <arg>Login failed! Please ensure the username and password are valid.</arg>
 <arg>strip_spaces=true</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2024-05-23T11:11:37.207652" elapsed="0.000155"/>
+<status status="PASS" start="2024-06-04T14:12:08.866021" elapsed="0.000181"/>
 </kw>
-<status status="PASS" start="2024-05-23T11:11:37.153384" elapsed="0.054470"/>
+<status status="PASS" start="2024-06-04T14:12:08.852539" elapsed="0.013718"/>
 </kw>
-<status status="PASS" start="2024-05-23T11:11:36.448018" elapsed="0.759933"/>
+<status status="PASS" start="2024-06-04T14:12:08.043166" elapsed="0.823208"/>
 </test>
-<test id="s1-t5" name="Test to verify successful login" line="33">
+<test id="s1-s2-t5" name="Test to verify successful login" line="31">
 <kw name="Given User is on Login page" owner="login_keywords">
 <kw name="Get Title" owner="SeleniumLibrary">
-<msg time="2024-05-23T11:11:37.210545" level="INFO">${PageTitle} = CURA Healthcare Service</msg>
+<msg time="2024-06-04T14:12:08.870195" level="INFO">${PageTitle} = CURA Healthcare Service</msg>
 <var>${PageTitle}</var>
 <doc>Returns the title of the current page.</doc>
-<status status="PASS" start="2024-05-23T11:11:37.208421" elapsed="0.002144"/>
+<status status="PASS" start="2024-06-04T14:12:08.866997" elapsed="0.003225"/>
 </kw>
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
 <arg>${PageTitle}</arg>
 <arg>CURA Healthcare Service</arg>
 <arg>strip_spaces=true</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2024-05-23T11:11:37.210639" elapsed="0.000117"/>
+<status status="PASS" start="2024-06-04T14:12:08.870331" elapsed="0.000153"/>
 </kw>
-<status status="PASS" start="2024-05-23T11:11:37.208295" elapsed="0.002508"/>
+<status status="PASS" start="2024-06-04T14:12:08.866847" elapsed="0.003685"/>
 </kw>
 <kw name="And Enter valid username" owner="login_keywords">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-23T11:11:37.211309" level="INFO">Typing text 'John Doe' into text field 'id:txt-username'.</msg>
+<msg time="2024-06-04T14:12:08.871287" level="INFO">Typing text 'John Doe' into text field 'id:txt-username'.</msg>
 <arg>locator=${loginUsername}</arg>
 <arg>text=${validusername}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-23T11:11:37.211175" elapsed="0.037843"/>
+<status status="PASS" start="2024-06-04T14:12:08.870902" elapsed="0.038958"/>
 </kw>
-<status status="PASS" start="2024-05-23T11:11:37.210916" elapsed="0.038169"/>
+<status status="PASS" start="2024-06-04T14:12:08.870686" elapsed="0.039239"/>
 </kw>
 <kw name="And Enter Password" owner="login_keywords">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-23T11:11:37.249463" level="INFO">Typing text 'ThisIsNotAPassword' into text field 'id:txt-password'.</msg>
+<msg time="2024-06-04T14:12:08.910318" level="INFO">Typing text 'ThisIsNotAPassword' into text field 'id:txt-password'.</msg>
 <arg>${loginPwd}</arg>
 <arg>${valid_pwd}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-23T11:11:37.249360" elapsed="0.039712"/>
+<status status="PASS" start="2024-06-04T14:12:08.910212" elapsed="0.034831"/>
 </kw>
-<status status="PASS" start="2024-05-23T11:11:37.249231" elapsed="0.039932"/>
+<status status="PASS" start="2024-06-04T14:12:08.910079" elapsed="0.035027"/>
 </kw>
 <kw name="And Click Button" owner="SeleniumLibrary">
-<msg time="2024-05-23T11:11:37.289500" level="INFO">Clicking button 'id:btn-login'.</msg>
+<msg time="2024-06-04T14:12:08.945354" level="INFO">Clicking button 'id:btn-login'.</msg>
 <arg>${loginbtn}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-23T11:11:37.289324" elapsed="0.608908"/>
+<status status="PASS" start="2024-06-04T14:12:08.945232" elapsed="0.752045"/>
 </kw>
 <kw name="Then User is on appointment creation page" owner="login_keywords">
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2024-05-23T11:11:37.922792" level="INFO">Element 'id:combo_facility' is displayed.</msg>
+<msg time="2024-06-04T14:12:09.718971" level="INFO">Element 'id:combo_facility' is displayed.</msg>
 <arg>${facility}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2024-05-23T11:11:37.898627" elapsed="0.024220"/>
+<status status="PASS" start="2024-06-04T14:12:09.697685" elapsed="0.021511"/>
 </kw>
-<status status="PASS" start="2024-05-23T11:11:37.898459" elapsed="0.024446"/>
+<status status="PASS" start="2024-06-04T14:12:09.697475" elapsed="0.021835"/>
 </kw>
-<status status="PASS" start="2024-05-23T11:11:37.208077" elapsed="0.714920"/>
+<status status="PASS" start="2024-06-04T14:12:08.866512" elapsed="0.853419"/>
 </test>
-<status status="PASS" start="2024-05-23T11:11:28.732963" elapsed="9.190260"/>
+<test id="s1-s2-t6" name="Test to verify successful logout" line="38">
+<kw name="Given User is on Login page" owner="login_keywords">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2024-06-04T14:12:09.722554" level="INFO">${PageTitle} = CURA Healthcare Service</msg>
+<var>${PageTitle}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2024-06-04T14:12:09.720406" elapsed="0.002168"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${PageTitle}</arg>
+<arg>CURA Healthcare Service</arg>
+<arg>strip_spaces=true</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-06-04T14:12:09.722660" elapsed="0.000122"/>
+</kw>
+<status status="PASS" start="2024-06-04T14:12:09.720290" elapsed="0.002527"/>
+</kw>
+<kw name="And User Logs out" owner="login_keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-04T14:12:09.723124" level="INFO">Clicking element 'id:sidebar-wrapper'.</msg>
+<msg time="2024-06-04T14:12:10.322579" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-06-04T14:12:10.322693" level="FAIL">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=125.0.6422.113)
+Stacktrace:
+0   chromedriver                        0x0000000100be64c8 chromedriver + 4302024
+1   chromedriver                        0x0000000100bdee10 chromedriver + 4271632
+2   chromedriver                        0x0000000100810000 chromedriver + 278528
+3   chromedriver                        0x0000000100853398 chromedriver + 553880
+4   chromedriver                        0x0000000100848e24 chromedriver + 511524
+5   chromedriver                        0x000000010084885c chromedriver + 510044
+6   chromedriver                        0x000000010088ac5c chromedriver + 781404
+7   chromedriver                        0x0000000100847004 chromedriver + 503812
+8   chromedriver                        0x00000001008479ec chromedriver + 506348
+9   chromedriver                        0x0000000100bae510 chromedriver + 4072720
+10  chromedriver                        0x0000000100bb2fbc chromedriver + 4091836
+11  chromedriver                        0x0000000100b95754 chromedriver + 3970900
+12  chromedriver                        0x0000000100bb38a4 chromedriver + 4094116
+13  chromedriver                        0x0000000100b886d4 chromedriver + 3917524
+14  chromedriver                        0x0000000100bd0b08 chromedriver + 4213512
+15  chromedriver                        0x0000000100bd0c84 chromedriver + 4213892
+16  chromedriver                        0x0000000100bdea08 chromedriver + 4270600
+17  libsystem_pthread.dylib             0x000000018a677034 _pthread_start + 136
+18  libsystem_pthread.dylib             0x000000018a671e3c thread_start + 8
+</msg>
+<arg>${sidebar}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2024-06-04T14:12:09.723046" elapsed="0.600040">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=125.0.6422.113)
+Stacktrace:
+0   chromedriver                        0x0000000100be64c8 chromedriver + 4302024
+1   chromedriver                        0x0000000100bdee10 chromedriver + 4271632
+2   chromedriver                        0x0000000100810000 chromedriver + 278528
+3   chromedriver                        0x0000000100853398 chromedriver + 553880
+4   chromedriver                        0x0000000100848e24 chromedriver + 511524
+5   chromedriver                        0x000000010084885c chromedriver + 510044
+6   chromedriver                        0x000000010088ac5c chromedriver + 781404
+7   chromedriver                        0x0000000100847004 chromedriver + 503812
+8   chromedriver                        0x00000001008479ec chromedriver + 506348
+9   chromedriver                        0x0000000100bae510 chromedriver + 4072720
+10  chromedriver                        0x0000000100bb2fbc chromedriver + 4091836
+11  chromedriver                        0x0000000100b95754 chromedriver + 3970900
+12  chromedriver                        0x0000000100bb38a4 chromedriver + 4094116
+13  chromedriver                        0x0000000100b886d4 chromedriver + 3917524
+14  chromedriver                        0x0000000100bd0b08 chromedriver + 4213512
+15  chromedriver                        0x0000000100bd0c84 chromedriver + 4213892
+16  chromedriver                        0x0000000100bdea08 chromedriver + 4270600
+17  libsystem_pthread.dylib             0x000000018a677034 _pthread_start + 136
+18  libsystem_pthread.dylib             0x000000018a671e3c thread_start + 8
+</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${logout}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-06-04T14:12:10.323194" elapsed="0.000016"/>
+</kw>
+<status status="FAIL" start="2024-06-04T14:12:09.722931" elapsed="0.600347">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=125.0.6422.113)
+Stacktrace:
+0   chromedriver                        0x0000000100be64c8 chromedriver + 4302024
+1   chromedriver                        0x0000000100bdee10 chromedriver + 4271632
+2   chromedriver                        0x0000000100810000 chromedriver + 278528
+3   chromedriver                        0x0000000100853398 chromedriver + 553880
+4   chromedriver                        0x0000000100848e24 chromedriver + 511524
+5   chromedriver                        0x000000010084885c chromedriver + 510044
+6   chromedriver                        0x000000010088ac5c chromedriver + 781404
+7   chromedriver                        0x0000000100847004 chromedriver + 503812
+8   chromedriver                        0x00000001008479ec chromedriver + 506348
+9   chromedriver                        0x0000000100bae510 chromedriver + 4072720
+10  chromedriver                        0x0000000100bb2fbc chromedriver + 4091836
+11  chromedriver                        0x0000000100b95754 chromedriver + 3970900
+12  chromedriver                        0x0000000100bb38a4 chromedriver + 4094116
+13  chromedriver                        0x0000000100b886d4 chromedriver + 3917524
+14  chromedriver                        0x0000000100bd0b08 chromedriver + 4213512
+15  chromedriver                        0x0000000100bd0c84 chromedriver + 4213892
+16  chromedriver                        0x0000000100bdea08 chromedriver + 4270600
+17  libsystem_pthread.dylib             0x000000018a677034 _pthread_start + 136
+18  libsystem_pthread.dylib             0x000000018a671e3c thread_start + 8
+</status>
+</kw>
+<status status="FAIL" start="2024-06-04T14:12:09.720078" elapsed="0.603330">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=125.0.6422.113)
+Stacktrace:
+0   chromedriver                        0x0000000100be64c8 chromedriver + 4302024
+1   chromedriver                        0x0000000100bdee10 chromedriver + 4271632
+2   chromedriver                        0x0000000100810000 chromedriver + 278528
+3   chromedriver                        0x0000000100853398 chromedriver + 553880
+4   chromedriver                        0x0000000100848e24 chromedriver + 511524
+5   chromedriver                        0x000000010084885c chromedriver + 510044
+6   chromedriver                        0x000000010088ac5c chromedriver + 781404
+7   chromedriver                        0x0000000100847004 chromedriver + 503812
+8   chromedriver                        0x00000001008479ec chromedriver + 506348
+9   chromedriver                        0x0000000100bae510 chromedriver + 4072720
+10  chromedriver                        0x0000000100bb2fbc chromedriver + 4091836
+11  chromedriver                        0x0000000100b95754 chromedriver + 3970900
+12  chromedriver                        0x0000000100bb38a4 chromedriver + 4094116
+13  chromedriver                        0x0000000100b886d4 chromedriver + 3917524
+14  chromedriver                        0x0000000100bd0b08 chromedriver + 4213512
+15  chromedriver                        0x0000000100bd0c84 chromedriver + 4213892
+16  chromedriver                        0x0000000100bdea08 chromedriver + 4270600
+17  libsystem_pthread.dylib             0x000000018a677034 _pthread_start + 136
+18  libsystem_pthread.dylib             0x000000018a671e3c thread_start + 8
+</status>
+</test>
+<status status="FAIL" start="2024-06-04T14:11:55.401438" elapsed="14.922200"/>
+</suite>
+<status status="FAIL" start="2024-06-04T14:11:44.380041" elapsed="25.943859"/>
 </suite>
 <statistics>
 <total>
-<stat pass="5" fail="0" skip="0">All Tests</stat>
+<stat pass="6" fail="2" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="5" fail="0" skip="0" id="s1" name="Login">Login</stat>
+<stat pass="6" fail="2" skip="0" id="s1" name="Test Case">Test Case</stat>
+<stat pass="1" fail="1" skip="0" id="s1-s1" name="Appointment">Test Case.Appointment</stat>
+<stat pass="5" fail="1" skip="0" id="s1-s2" name="Login">Test Case.Login</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2024-06-04T14:11:44.435059" level="ERROR">Error in file '/Users/pavankumar/VSCODE/Healtcare-Appointment-robotframework/cura-healthcare/test_case/appointment.robot' on line 3: Library '../util.py' does not exist.</msg>
+<msg time="2024-06-04T14:11:44.439240" level="ERROR">Error in file '/Users/pavankumar/VSCODE/Healtcare-Appointment-robotframework/cura-healthcare/resources/keywords/appointment_keywords.robot' on line 3: Importing library '/Users/pavankumar/VSCODE/Healtcare-Appointment-robotframework/cura-healthcare/resources/util.py' failed: No browser is open.
+Traceback (most recent call last):
+  File "/Users/pavankumar/VSCODE/Healtcare-Appointment-robotframework/cura-healthcare/resources/util.py", line 16, in &lt;module&gt;
+    title = driver.get_title()
+            ^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/SeleniumLibrary/keywords/browsermanagement.py", line 483, in get_title
+    return self.driver.title
+           ^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/SeleniumLibrary/base/context.py", line 34, in driver
+    return self.ctx.driver
+           ^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/SeleniumLibrary/__init__.py", line 594, in driver
+    raise NoOpenBrowser("No browser is open.")
+PYTHONPATH:
+  /Users/pavankumar/VSCODE/Healtcare-Appointment-robotframework/cura-healthcare/resources
+  /Users/pavankumar/VSCODE/Healtcare-Appointment-robotframework
+  /Library/Frameworks/Python.framework/Versions/3.12/lib/python312.zip
+  /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12
+  /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/lib-dynload
+  /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages</msg>
 </errors>
 </robot>

@@ -4,8 +4,6 @@ Resource    ../resources/keywords/login_keywords.robot
 
 Suite Setup    Open Browser    browser=chrome    url=https://katalon-demo-cura.herokuapp.com/profile.php#login
 
-*** Test Cases ***
-
 
 *** Test Cases ***
 Test to verify login page
@@ -36,3 +34,8 @@ Test to verify successful login
     And Enter Password
     And Click Button    ${loginbtn}
     Then User is on appointment creation page
+
+Test to verify successful logout 
+    Given User is on Login page
+    And User Logs out 
+

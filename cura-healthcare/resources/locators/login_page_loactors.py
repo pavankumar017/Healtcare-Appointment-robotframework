@@ -7,3 +7,6 @@ error_message = "xpath ://p[@class='lead text-danger']"
 
 # appointment page
 facility = "id:combo_facility"
+
+#side bar
+logout = "xpath://a[text()='Logut']"
